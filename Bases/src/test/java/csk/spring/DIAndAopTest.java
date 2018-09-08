@@ -15,7 +15,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-//三种方式依赖注入及aop
+//三种方式的依赖注入及aop测试
 public class DIAndAopTest {
 
     /*
