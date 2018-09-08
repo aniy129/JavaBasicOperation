@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <bean id="log" class="csk.spring.Beans.xml.Log"
+          init-method="initialize"
+          destroy-method="destroy">
+    </bean>
+    <bean id="businessService" class="csk.spring.Beans.xml.BusinessService">
+        <property name="serviceName" value="我的xml服务"/>
+        <property name="log" ref="log"/>
+    </bean>
+    <bean id="aopBean" class="csk.spring.aop.XmlAop"></bean>
+    <aop:config>
+        <aop:aspect id="myAspect" ref="aopBean">
+            <aop:pointcut expression="execution(* csk.spring.Beans.xml.*.*(..))" id="select"/>
+            <aop:after pointcut-ref="select" method="after"/>
+            <aop:before method="before" pointcut-ref="select"/>
+            <aop:after-returning method="afterReturningAdvice" returning="retVal" pointcut-ref="select"/>
+            <aop:after-throwing method="afterThrowingAdvice" pointcut-ref="select" throwing="ex"/>
+            <aop:around method="aroundAdvice" pointcut-ref="select"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
