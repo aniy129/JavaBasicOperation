@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ThreadTest {
 
@@ -108,5 +110,26 @@ public class ThreadTest {
     synchronized Integer setAndReturnValue() {
         classicalValue++;
         return classicalValue;
+    }
+
+    Lock lock = new ReentrantLock();
+
+    Integer setVal() {
+        lock.lock();
+        try {
+            classicalValue++;
+            System.out.println(classicalValue);
+            return classicalValue;
+        } finally {
+            lock.unlock();
+        }
+    }
+    @Test
+    public void lockTest() throws InterruptedException {
+        for (int i=0;i<100;i++){
+            new Thread(()->setVal()).start();
+        }
+        Thread.sleep(1000*3);
+        System.out.println(classicalValue);
     }
 }
