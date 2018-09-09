@@ -16,6 +16,18 @@
         <property name="log" ref="log"/>
     </bean>
     <bean id="aopBean" class="csk.spring.aop.XmlAop"></bean>
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.142.180:3306/spring_jdbc"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <bean id="JDBCTemplate"
+          class="csk.spring.jdbc.JDBCTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
     <aop:config>
         <aop:aspect id="myAspect" ref="aopBean">
             <aop:pointcut expression="execution(* csk.spring.Beans.xml.*.*(..))" id="select"/>

@@ -41,7 +41,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-           <version>${sp}</version>
+            <version>${sp}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -58,6 +58,11 @@
             <artifactId>spring-aspects</artifactId>
             <version>${sp}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${sp}</version>
+        </dependency>
         <!--spring 模块 -->
         <!-- AspectJ -->
         <!--使用AspectJ方式注解需要相应的包-->
@@ -71,6 +76,12 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
         </dependency>
 
 

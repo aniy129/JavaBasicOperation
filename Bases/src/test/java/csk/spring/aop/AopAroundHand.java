@@ -9,13 +9,13 @@ public class AopAroundHand {
         sb.append(proceedingJoinPoint.getSignature().getName());
         Object[] args = proceedingJoinPoint.getArgs();
         if (args.length > 0) {
-            sb.append("参数: ");
+            sb.append(" 参数: ");
             for (int i = 0; i < args.length; i++) {
                 sb.append("arg " + (i + 1) + ": " + args[i] + " ");
             }
         }
         Object result = proceedingJoinPoint.proceed(args);
-        sb.append("结果 " + result);
+        sb.append(" 结果: " + result);
         System.out.println(sb.toString());
         return result;
     }
