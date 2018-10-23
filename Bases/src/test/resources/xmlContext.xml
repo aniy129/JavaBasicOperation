@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?csk.dubbo.provider.xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <bean id="log" class="csk.spring.Beans.xml.Log"
+    <bean id="log" class="csk.spring.Beans.csk.dubbo.provider.xml.Log"
           init-method="initialize"
           destroy-method="destroy">
     </bean>
-    <bean id="businessService" class="csk.spring.Beans.xml.BusinessService">
+    <bean id="businessService" class="csk.spring.Beans.csk.dubbo.provider.xml.BusinessService">
         <property name="serviceName" value="我的xml服务"/>
         <property name="log" ref="log"/>
     </bean>
@@ -19,18 +22,34 @@
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://192.168.142.180:3306/spring_jdbc"/>
+        <property name="url" value="jdbc:mysql://192.168.142.180:3306/spring_jdbc?characterEncoding=utf-8"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
     <bean id="JDBCTemplate"
           class="csk.spring.jdbc.JDBCTemplate">
         <property name="dataSource" ref="dataSource"/>
+        <property name="transactionManager" ref="transactionManager"/>
     </bean>
+    <!-- Initialization for TransactionManager -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="createMultiIndividualsByStatement" />
+        </tx:attributes>
+    </tx:advice>
 
     <aop:config>
+        <!--申明式事务aop拦截-->
+        <aop:pointcut id="createOperation"
+                      expression="execution(*  csk.spring.jdbc.JDBCTemplate.createMultiIndividualsByStatement(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="createOperation"/>
+        <!--aop方法拦截-->
         <aop:aspect id="myAspect" ref="aopBean">
-            <aop:pointcut expression="execution(* csk.spring.Beans.xml.*.*(..))" id="select"/>
+            <aop:pointcut expression="execution(* csk.spring.Beans.csk.dubbo.provider.xml.*.*(..))" id="select"/>
             <aop:after pointcut-ref="select" method="after"/>
             <aop:before method="before" pointcut-ref="select"/>
             <aop:after-returning method="afterReturningAdvice" returning="retVal" pointcut-ref="select"/>

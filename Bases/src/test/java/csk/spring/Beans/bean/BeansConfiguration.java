@@ -7,7 +7,7 @@ import org.springframework.core.annotation.Order;
 @ComponentScan(
         basePackages = {"csk.spring.aop"}
 )
-//@ImportResource("classpath:javaAop.xml")
+//@ImportResource("classpath:javaAop.csk.dubbo.provider.xml")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class BeansConfiguration {
     @Bean()

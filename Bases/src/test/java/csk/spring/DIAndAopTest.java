@@ -29,12 +29,12 @@ public class DIAndAopTest {
 
     /*
      * xml配置获取ApplicationContext(AbstractApplicationContext)
-     *  初始化和销毁需要p配置 init-method="initialize" destroy-method="destroy">
+     * 初始化和销毁需要p配置 init-method="initialize" destroy-method="destroy">
      * */
     @Test
-    public void xmlContextTest() throws Exception {
+    public void xmlContextTest() {
         AbstractApplicationContext context =
-                new FileSystemXmlApplicationContext("classpath:xmlContext.xml");
+                new FileSystemXmlApplicationContext("classpath:xmlContext.csk.dubbo.provider.xml");
         csk.spring.Beans.xml.BusinessService service =
                 (csk.spring.Beans.xml.BusinessService) context.getBean("businessService");
         System.out.println("服务名称：" + service.getServiceName());
@@ -48,7 +48,7 @@ public class DIAndAopTest {
      * 扫描指定包下注解获取ApplicationContext
      * */
     @Test
-    public void annotationContextTest() throws Exception {
+    public void annotationContextTest() {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("annotationContext.xml");
         csk.spring.Beans.annotation.IBusinessService service =
@@ -64,7 +64,7 @@ public class DIAndAopTest {
      * 初始化和销毁需要实现 InitializingBean,DisposableBean 接口
      * */
     @Test
-    public void javaContextTest() throws Exception {
+    public void javaContextTest() {
         AbstractApplicationContext context =
                 new AnnotationConfigApplicationContext(BeansConfiguration.class);
         csk.spring.Beans.bean.IBusinessService service =

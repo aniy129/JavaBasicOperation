@@ -18,4 +18,8 @@ public interface Dao {
     void update(Integer id, Integer age);
 
     Student getStudentByProduce(Integer id);
+
+    void createMultiIndividualsByProgramming(List<Student> list);
+
+    void createMultiIndividualsByStatement(List<Student> list);
 }

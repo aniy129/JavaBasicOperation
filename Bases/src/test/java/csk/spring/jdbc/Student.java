@@ -5,6 +5,15 @@ public class Student {
     private String name;
     private Integer id;
 
+    public Student() {
+    }
+
+    public Student(Integer age, String name, Integer id) {
+        this.age = age;
+        this.name = name;
+        this.id = id;
+    }
+
     public Integer getAge() {
         return age;
     }

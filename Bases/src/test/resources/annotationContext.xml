@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?csk.dubbo.provider.xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -12,7 +12,7 @@
 
     <aop:aspectj-autoproxy expose-proxy="true"/>
     <!--扫描组件的包目录-->
-    <context:component-scan base-package="csk.spring.Beans.annotation,csk.spring.aop">
+    <context:component-scan base-package="csk.spring.Beans.csk.dubbo.provider.annotation,csk.spring.aop">
       <context:include-filter type="aspectj" expression="csk.spring.aop.AnnotationAop"/>
     </context:component-scan>
 </beans>

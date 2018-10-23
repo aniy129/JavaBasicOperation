@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?csk.dubbo.provider.xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -11,10 +11,14 @@
     <modules>
         <module>Elasticsearch</module>
         <module>Bases</module>
+        <module>DubboProtocol</module>
+        <module>DubboProvider</module>
+        <module>DubboConsumer</module>
     </modules>
     <properties>
-        <log4j.log4j.version>1.2.17</log4j.log4j.version>
         <log4j.version>2.0.2</log4j.version>
+        <sp>5.0.5.RELEASE</sp>
+        <aspectj.version>1.8.9</aspectj.version>
     </properties>
 
 </project>

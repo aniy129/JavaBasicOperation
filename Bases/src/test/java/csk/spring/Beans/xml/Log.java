@@ -12,10 +12,10 @@ public class Log {
     }
 
     public static void initialize() {
-        System.out.println("csk.spring.Beans.xml 初始化完成");
+        System.out.println("csk.spring.Beans.csk.dubbo.provider.xml 初始化完成");
     }
 
     public static void destroy() {
-        System.out.println("csk.spring.Beans.xml 销毁完成");
+        System.out.println("csk.spring.Beans.csk.dubbo.provider.xml 销毁完成");
     }
 }

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcTest {
@@ -15,6 +16,13 @@ public class JdbcTest {
                 new ClassPathXmlApplicationContext("xmlContext.xml");
         JDBCTemplate JDBCTemplate =
                 (JDBCTemplate)context.getBean("JDBCTemplate");
+
+        List<Student>list=new ArrayList<>();
+        list.add(new Student(18,"小华",9));
+        list.add(new Student(18,"小红",8));
+        JDBCTemplate.createMultiIndividualsByStatement(list);
+
+        System.out.println("使用事务添加多个完成");
 //        System.out.println("------創建--------" );
 //        JDBCTemplate.create("Zara", 11);
 //        JDBCTemplate.create("Adi", 2);
