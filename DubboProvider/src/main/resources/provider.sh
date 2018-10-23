@@ -2,7 +2,7 @@
 #我的启动程序脚本
 export JAVA_HOME=/usr/share/java/jdk1.8.0_151
 export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:$JRE_HOME/lib
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
 app_name='DubboProvider.jar'
 app_log=${app_name}'.log'
@@ -100,4 +100,3 @@ exit 1
 esac
 
 exit 0
-
