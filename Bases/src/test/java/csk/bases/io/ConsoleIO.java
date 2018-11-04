@@ -47,5 +47,6 @@ public class ConsoleIO {
             String str = scanner.next();
             System.out.println(str);
         }
+        scanner.close();
     }
 }

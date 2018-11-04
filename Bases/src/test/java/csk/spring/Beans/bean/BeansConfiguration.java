@@ -9,6 +9,7 @@ import org.springframework.core.annotation.Order;
 )
 //@ImportResource("classpath:javaAop.csk.dubbo.provider.xml")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+// AopContext.currentProxy() 获取当前类的代理对象，避免调用this的方法使用真实的对象而是代理失效
 public class BeansConfiguration {
     @Bean()
     @Scope("prototype")//作用域 prototype singleton

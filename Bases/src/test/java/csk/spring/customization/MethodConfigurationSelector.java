@@ -1,6 +1,5 @@
 package csk.spring.customization;
 
-import org.springframework.aop.ProxyMethodInvocation;
 import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.AdviceModeImportSelector;
 import org.springframework.context.annotation.AutoProxyRegistrar;

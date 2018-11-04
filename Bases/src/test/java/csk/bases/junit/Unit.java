@@ -1,15 +1,11 @@
 package csk.bases.junit;
 
+import static org.junit.Assume.assumeNoException;
+
 import org.junit.*;
 
 /**
- * junit测试执行顺序：
- * beforeClass
- * FileIo 构造函数
- * before
- * test
- * after
- * afterClass
+ * junit测试执行顺序： beforeClass FileIo 构造函数 before test after afterClass
  */
 public class Unit {
 
@@ -38,10 +34,12 @@ public class Unit {
     }
 
     @Test
-    public void Test() {
+    public void Test() throws Exception {
         int x = 4;
         boolean result = (x & (x - 1)) == 0;
-        System.out.println("result="+result);
+        System.out.println("result=" + result);
+        Assume.assumeNoException("异常", null);
+
     }
 
 }
