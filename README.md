@@ -16,6 +16,9 @@ simple java demos
                                    jdk/ proxy 代理
                              redis/
                              spring/
+                                    Process/ 后置处理器的使用
+                                            cglib/ 基于cglib代理 
+                                            proxy/ 基于jdk proxy代理 ，需实现相应的接口
                              zookeeper/
                     resources/   资源文件夹
 

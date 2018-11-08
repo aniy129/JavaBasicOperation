@@ -1,4 +1,4 @@
-package csk.spring.Process;
+package csk.spring.Process.proxy;
 
 public interface IProxyTest {
     @ProxTran("各种日志事务哈")

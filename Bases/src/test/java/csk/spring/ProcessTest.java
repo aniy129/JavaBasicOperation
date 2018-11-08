@@ -1,8 +1,8 @@
 package csk.spring;
 
-import csk.spring.Process.CglibTest;
+import csk.spring.Process.cglib.CglibTest;
 import csk.spring.Process.Config;
-import csk.spring.Process.IProxyTest;
+import csk.spring.Process.proxy.IProxyTest;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

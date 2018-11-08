@@ -1,4 +1,4 @@
-package csk.spring.Process;
+package csk.spring.Process.proxy;
 
 import org.springframework.context.annotation.Import;
 

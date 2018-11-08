@@ -1,5 +1,6 @@
-package csk.spring.Process;
+package csk.spring.Process.proxy;
 
+import csk.spring.Process.cglib.CustomerCglibProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
