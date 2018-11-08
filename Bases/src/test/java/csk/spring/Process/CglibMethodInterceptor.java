@@ -1,21 +1,25 @@
 package csk.spring.Process;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 
 public class CglibMethodInterceptor implements MethodInterceptor {
+    Logger logger = LoggerFactory.getLogger(CglibMethodInterceptor.class);
+
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        Tran annotation = method.getAnnotation(Tran.class);
-        if (annotation!=null){
-            System.out.println("注解内容="+annotation.value());
-            System.out.println("开启事务 " + method.getName());
+        CglibTran annotation = method.getAnnotation(CglibTran.class);
+        if (annotation != null) {
+            logger.info("注解内容=" + annotation.value());
+            logger.info("开启事务 " + method.getName());
         }
         Object invokeResult = methodProxy.invokeSuper(o, objects);
-        if (annotation!=null){
-            System.out.println("提交或回滚事务 " + method.getName());
+        if (annotation != null) {
+            logger.info("提交或回滚事务 " + method.getName());
         }
         return invokeResult;
     }
