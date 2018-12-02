@@ -3,6 +3,7 @@ package csk.spring;
 import csk.spring.Process.cglib.CglibTest;
 import csk.spring.Process.Config;
 import csk.spring.Process.proxy.IProxyTest;
+import csk.spring.Process.proxy.autoLoad.IAutoImplementTest;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -19,5 +20,8 @@ public class ProcessTest {
         CglibTest bean1 = context.getBean(CglibTest.class);
         bean1.say("Cglib小红");
         bean1.say2("Cglib小红");
+        IAutoImplementTest iAutoImplementTest = context.getBean(IAutoImplementTest.class);
+        String say = iAutoImplementTest.say("动态注入代理测试……");
+        System.out.println(say);
     }
 }

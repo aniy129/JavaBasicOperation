@@ -47,6 +47,9 @@ public class CustomLeaderSelectorListenerAdapter extends
         System.out.println(name + " 之前成为leader的次数：" + leaderCount.getAndIncrement() + "次");
 
         //TODO 其他业务代码
+        //FIXME 需要修复的地方
+        //DOING 正在做哈
+        /*doing  我要做的哈，提示标签真好玩*/
         try {
             //等待2秒后放弃领导权（模拟业务执行过程）
             Thread.sleep(TimeUnit.SECONDS.toMillis(waitSeconds));

@@ -44,7 +44,7 @@ public class TestLeaderElection {
 
     //自定义LeaderSelectorListenerAdapter实例集合
     List<CustomLeaderSelectorListenerAdapter> leaderSelectorListenerList
-            = new ArrayList<CustomLeaderSelectorListenerAdapter>();
+            = new ArrayList<>();
 
     @Test
     public void test() throws Exception {

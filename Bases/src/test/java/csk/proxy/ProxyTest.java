@@ -24,7 +24,8 @@ public class ProxyTest {
 
     @Test
     public void jdkTest(){
-        IProxyInterface instance =(IProxyInterface) Proxy.newProxyInstance(this.getClass().getClassLoader(),
+        IProxyInterface instance =
+                (IProxyInterface) Proxy.newProxyInstance(this.getClass().getClassLoader(),
                 new Class<?>[]{IProxyInterface.class},
                 new MyProxyHandler(new ProxyImpl()));
         instance.Say("yes");

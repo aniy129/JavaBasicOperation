@@ -14,7 +14,7 @@ public class ProxyInvocationHandler implements InvocationHandler {
     Logger logger = LoggerFactory.getLogger(ProxyInvocationHandler.class);
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        ProxTran annotation = method.getAnnotation(ProxTran.class);
+        proxyTran annotation = method.getAnnotation(proxyTran.class);
         if (annotation != null) {
             logger.info("注解内容=" + annotation.value());
             logger.info("开启事务：");

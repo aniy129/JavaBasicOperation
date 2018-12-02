@@ -28,7 +28,7 @@ public class CustomerProxyProcessor implements BeanPostProcessor {
         Method[] methods = bean.getClass().getMethods();
         boolean flag = false;
         for (Method method : methods) {
-            ProxTran annotation = method.getAnnotation(ProxTran.class);
+            proxyTran annotation = method.getAnnotation(proxyTran.class);
             if (annotation != null) {
                 flag = true;
                 break;

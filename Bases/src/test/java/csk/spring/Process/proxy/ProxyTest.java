@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 
 @Scope(proxyMode = ScopedProxyMode.INTERFACES)
 public class ProxyTest implements IProxyTest {
-    @ProxTran("Proxy代理测试")
+    @proxyTran("Proxy代理测试")
     public String say(String name) {
         String str = "hello " + name;
         System.out.println(str);
