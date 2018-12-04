@@ -13,7 +13,7 @@ public class Program {
     public static void main(String[] args) throws UnknownHostException {
         TransportClient client = getClient();
 //        SearchRequestBuilder elasticsearch = client.prepareSearch().setQuery(QueryBuilders.queryStringQuery("elasticsearch")).setSize(1);
-        GetResponse response = client.prepareGet("mybook", "Book", "1").get();
+        GetResponse response = client.prepareGet("probook", "ProBook", "5913").get();
         String sourceAsString = response.getSourceAsString();
         System.out.println(sourceAsString.replace("\\r\\n","\r\n"));
     }
