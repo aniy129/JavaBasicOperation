@@ -4,6 +4,8 @@ import static org.junit.Assume.assumeNoException;
 
 import org.junit.*;
 
+import java.util.Random;
+
 /**
  * junit测试执行顺序： beforeClass FileIo 构造函数 before test after afterClass
  */
@@ -34,7 +36,7 @@ public class Unit {
     }
 
     @Test
-    public void Test() throws Exception {
+    public void test() {
         int x = 4;
         boolean result = (x & (x - 1)) == 0;
         System.out.println("result=" + result);
@@ -42,4 +44,13 @@ public class Unit {
 
     }
 
+    @Test
+    public void  ts(){
+        //打印 30到50之间的随机数
+        int min = 30;
+        int max = 50;
+        for(int i=0;i<10;i++){
+            System.out.println(new Random().nextInt(max-min)+min);
+        }
+    }
 }
