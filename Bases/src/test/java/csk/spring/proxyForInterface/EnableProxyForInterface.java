@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import({ProxyConfiguration.class})
+@Import({AutoRegistryInterfaceToBeanFactory.class})
 public @interface EnableProxyForInterface {
-
+    String[] value() default "";
 }
