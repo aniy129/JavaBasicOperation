@@ -22,7 +22,7 @@ public class Mongodb {
 
     @BeforeClass
     public static void init() {
-        mongoClient = new MongoClient("192.168.142.171", 27017);
+        mongoClient = new MongoClient("192.168.142.151", 27017);
         mongoDatabase = mongoClient.getDatabase("MyDatabase");
         System.out.println("Connect to database successfully");
     }
@@ -35,11 +35,11 @@ public class Mongodb {
     @Test
     public void createDbAndDocumentTest() throws IllegalAccessException, InvocationTargetException {
         MongoCollection<Document> collection = mongoDatabase.getCollection("MyDocument");
-        System.out.println("select a collection of MyDocument");
+        System.out.println("select a colle  ction of MyDocument");
         List<Object> documents = new ArrayList<>();
-        Entity document = new Entity("小华2", 14, "No101");
+        Entity document = new Entity("小明", 14, "No101");
         documents.add(document);
-        Entity document2 = new Entity("小红3", 15, "No103");
+        Entity document2 = new Entity("小华", 15, "No103");
         documents.add(document2);
         List<Document> docs = Conversion.toBsons(documents);
         collection.insertMany(docs);
